@@ -2,6 +2,8 @@
 Definition linker
 =================
 
+[![NPM version](http://img.shields.io/npm/v/definition-linker.svg)](https://www.npmjs.org/package/definition-linker)
+
 Utility to automatically create links to definition URLs, in a given block of
 text/HTML.
 
