@@ -7,7 +7,7 @@ const reshape = require('reshape')
 
 const mine = require('./lib/reshape-transform-text')
 
-// TODO: Document that () is to preserve the split characters
+// () in the regexp is to preserve the split characters
 const punct_regexp = /(['’,.:!])/
 
 let config
