@@ -7,7 +7,8 @@ const reshape = require('reshape')
 
 const mine = require('./lib/reshape-transform-text')
 
-// () in the regexp is to preserve the split characters
+// () in the regexp is to preserve the split characters.
+// TODO: Add "?" to the punctuation signs.
 const punct_regexp = /(['’,.:!])/
 
 let config
@@ -34,19 +35,18 @@ function addToIndex(definition_term, definition_url) {
 }
 
 /**
- * Adds links through the search index in an item to other items, with taking
- * care to not create links on the item-itself (when the body of the item uses
- * the title of the item).
+ * Creates links to definition URLs in the given content of HTML, excluding an
+ * optional definition key (the aim is to not create links on the item-itself).
  *
  * @param {string} content
  * @param {string} title_fr
  * @return {string} the modified content
  */
-function addLinksInHtml(content, title_fr) {
+function addLinksInHtml(content, definition_key) {
     // logger.debug('content:', content)
 
     const transform = (text) => {
-        return addLinksInText(text, title_fr)
+        return addLinksInText(text, definition_key)
     }
 
     return reshape({plugins: [mine({transform})]})

@@ -14,6 +14,8 @@ text/HTML with the configured definition words.
 Usage
 -----
 
+### Basic
+
 ```javascript
 const natural = require('natural');
 const definition_linker = require('definition-linker')({
@@ -26,14 +28,17 @@ const definition_linker = require('definition-linker')({
 definition_linker.createIndex();
 
 definition_linker.addToIndex('node.js', `#node.js`);
-definition_linker.addToIndex('logiciel libre, `#logiciel-libre`);
+definition_linker.addToIndex('logiciel libre', `#logiciel-libre`);
 // etc.
 
-const html = definition_linker.addLinksInHtml('Node.js est un logiciel libre);
+const html = definition_linker.addLinksInHtml('Node.js est un logiciel libre');
 ```
 
 ### Advanced
 
+`addLinksInHtml` and `addLinksInText` accept an optional parameter to exclude
+linking to a definition.
+
 ```javascript
 const natural = require('natural');
 const definition_linker = require('definition-linker')({
@@ -46,12 +51,12 @@ const definition_linker = require('definition-linker')({
 definition_linker.createIndex();
 
 definition_linker.addToIndex('node.js', `#node.js`);
-definition_linker.addToIndex('logiciel libre, `#logiciel-libre`);
+definition_linker.addToIndex('logiciel libre', `#logiciel-libre`);
 // etc.
 
-const html1 = definition_linker.addLinksInHtml('Node.js est un logiciel libre, '#node.js');
+const html1 = definition_linker.addLinksInHtml('Node.js est un logiciel libre', 'node.js');
 
-const html2 = definition_linker.addLinksInHtml('Il existe de nombreux logiciels libres dont Node.js', '#logiciel-libre);
+const html2 = definition_linker.addLinksInHtml('Il existe de nombreux logiciels libres dont Node.js', 'logiciel-libre');
 ```
 
 
