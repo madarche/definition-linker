@@ -77,7 +77,7 @@ function addLinksInText(text, title_fr) {
         return text
     }
 
-    const definition_tokens = longerFirstSort(Object.keys(index_for_this_item))
+    const definition_tokens = Object.keys(index_for_this_item).sort(compareOnLength)
     // logger.trace('definition_tokens:', definition_tokens)
     const definition_segments = definition_tokens.map((el) => {
         return el.split(' ')
@@ -129,13 +129,8 @@ function addLinksInNonPunctText(segment, segment_s, definition_segments,
     return res
 }
 
-/**
- * Sorts the elements of the list in place, longer first, and returns the list
- */
-function longerFirstSort(list) {
-    return list.sort((a, b) => {
-        return b.length - a.length
-    })
+function compareOnLength(a, b) {
+    return b.length - a.length
 }
 
 module.exports = function(config_obj) {
