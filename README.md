@@ -60,6 +60,15 @@ const html2 = definition_linker.addLinksInHtml('Il existe de nombreux logiciels 
 ```
 
 
+Development
+------------
+
+```shell
+export DEBUG='definition-linker'
+npm test
+```
+
+
 Contributions
 -------------
 

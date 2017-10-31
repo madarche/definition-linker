@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "coveralls": "2.11.15",
+    "debug": "3.1.0",
     "eslint": "3.10.2",
     "eslint-config-usecases": "1.1.0",
     "istanbul": "0.4.5",
