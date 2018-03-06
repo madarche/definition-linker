@@ -1,6 +1,6 @@
 {
   "name": "definition-linker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Definition linker is a utility to automatically create links to definition URLs, in a given block of text/HTML",
   "engines": {
     "node": ">=8"
