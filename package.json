@@ -42,9 +42,9 @@
   "scripts": {
     "test": "npm run test:unit && npm run lint",
     "test:unit": "mocha --check-leaks test/unit/*.test.js",
-    "test:coverage": "istanbul cover _mocha -- --check-leaks test/*.test.js",
+    "test:coverage": "istanbul cover _mocha -- --check-leaks test/unit/*.test.js",
     "posttest:coverage": "npm run lint",
-    "test:ci": "istanbul cover _mocha -- --check-leaks test/*.test.js && cat test/coverage/lcov.info | coveralls",
+    "test:ci": "istanbul cover _mocha -- --check-leaks test/unit/*.test.js && cat test/coverage/lcov.info | coveralls",
     "posttest:ci": "npm run lint",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
