@@ -67,6 +67,20 @@ describe('Autolink', () => {
                 .must.then.equal('<p>L’<em>adresse MAC</em>, est différente de l’<a href="#adresse-ip">adresse IP</a>.</p>')
         })
 
+        it('works with non-empty item index honoring nolink class', () => {
+            const text1 = '<p>L’<em>adresse MAC</em>, est différente de <span class="nolink">l’adresse IP</span>.</p>'
+            const text2 = '<p>L’<em>adresse MAC</em>, est différente de <span class="nolink some_other_class">l’adresse IP</span>.</p>'
+            const text3 = '<p>L’<em>adresse MAC</em>, est différente de <span class="some_other_class nolink">l’adresse IP</span>.</p>'
+            definition_linker.createIndex()
+            definition_linker.addToIndex('adresse IP', '#adresse-ip')
+            const key = definition_linker.addToIndex('adresse MAC', '#adresse-mac')
+            return Promise.all([
+                definition_linker.addLinksInHtml(text1, key).must.then.equal(text1),
+                definition_linker.addLinksInHtml(text2, key).must.then.equal(text2),
+                definition_linker.addLinksInHtml(text3, key).must.then.equal(text3)
+            ])
+        })
+
         it('works with non-empty item index and doesn’t put links in links', () => {
             const text3 = '<p>L’<em>adresse MAC</em>, est <a href="https://somewhere.test/">différente</a> de l’adresse IP.</p>'
             definition_linker.createIndex()

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Definition linker is a utility to automatically create links to definition URLs, in a given block of text/HTML",
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "main": "src/index.js",
   "repository": {

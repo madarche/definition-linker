@@ -15,6 +15,14 @@ module.exports = function(opts) {
                 return node
             }
 
+            // If it has the class "nolink" don't modify, move on
+            if (node.attrs && node.attrs.class &&
+                node.attrs.class.some((elem) => {
+                    return elem.content.split(' ').includes('nolink')
+                })) {
+                return node
+            }
+
             // If it has no content, move on
             if (!node.content) {
                 return node
